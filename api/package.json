@@ -1,0 +1,14 @@
+{
+  "name": "server-fastshopping",
+  "version": "1.0.0",
+  "main": "server.js",
+  "license": "MIT",
+  "scripts": {
+    "server": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.19.1"
+  }
+}
