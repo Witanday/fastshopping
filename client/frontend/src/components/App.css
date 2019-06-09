@@ -1,0 +1,113 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+
+
+body > .grid {
+  height: 100%;
+}
+.image {
+  margin-top: -100px;
+}
+.column {
+  max-width: 450px;
+}
+
+input.ui.segment {
+  position: relative;
+  background: #fff;
+  box-shadow: 0 0px 0px 0 rgba(34,36,38,.15);
+  margin: 1rem 0;
+  padding: 1em 1em;
+  border-radius: 0;
+  border: 0px solid rgba(34,36,38,.15);
+}
+
+
+.wrappersign{
+  height:100vh ;
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center
+}
+.conten1{
+  background: olivedrab;
+}
+
+
+.rowUsername{
+  display :flex;
+  margin-bottom :5px;
+}
+
+
+
+.tb_button {padding:1px;cursor:pointer;border-right: 1px solid #8b8b8b;border-left: 1px solid #FFF;border-bottom: 1px solid #fff;}.tb_button.hover {borer:2px outset #def; background-color: #f8f8f8 !important;}.ws_toolbar {z-index:100000} .ws_toolbar .ws_tb_btn {cursor:pointer;border:1px solid #555;padding:3px}   .tb_highlight{background-color:yellow} .tb_hide {visibility:hidden} .ws_toolbar img {padding:2px;margin:0px}
+
+
+.ui.cardsproducts{
+  margin-top: 150px;
+}
+
+.cad{
+  padding: 20px
+}
+
+.ui.cards{
+  display: flex;
+  width: 100%;
+  height: 500px;
+  border-radius: 0;
+}
+
+.ui.container.viewp{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 150px;
+  margin-bottom: 20px;
+  align-content: flex-start
+}
+
+.imagevp{
+  
+  margin-right: 25px;
+  display: flex
+}
+.img{
+  width: 400px;;
+  height:500px;
+  margin-right: 20px;
+}

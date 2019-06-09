@@ -9,7 +9,8 @@ const UserSchema = new Schema({
     password :String,
 
     profile :{
-        name : { type : String, default :''},
+        firstname : { type : String, default :''},
+        lastname : { type : String, default :''},
         picture : { type : String, default :''},
 },
 

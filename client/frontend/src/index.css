@@ -11,3 +11,68 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.profile{
+  margin-top: 100px;
+}
+.container .profile{
+  padding:5%;
+}
+.container .img{
+  text-align:center;
+}
+.container .details{
+  border-left:3px solid #ded4da;
+}
+.container .details p{
+  font-size:15px;
+  font-weight:bold;
+}
+
+
+
+
+
+
+.category {
+  text-transform: uppercase;
+  color: #6d6d6d;
+  margin: 2%;
+}
+
+.sub-category {
+  margin-top: 0px;
+  margin-bottom: 50px;
+  margin: 2%;
+}
+
+.product-name {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 0px;
+  margin: 5%;
+}
+
+.product-price {
+  font-weight: bold;
+  font-size: 15px;
+  margin: 5%;
+}
+
+p {
+  color: #333;
+  margin: 5%;
+}
+.carddiv{
+  margin: 20px;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  border: none;
+  border-radius: 0.28571429rem;
+  box-shadow: 0px 1px 3px 0px #D4D4D5, 0px 0px 0px 1px #D4D4D5;
+}
+.imagediv img{
+  width: 350px;;
+}
