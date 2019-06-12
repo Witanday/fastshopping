@@ -3,6 +3,8 @@ const bcrypt = require('bcrypt-nodejs');
 const auth = require('../auth');
 const Category = require('../models/category');
 const Product = require ('../models/product');
+const Cart = require('../models/cart');
+const CartProduct = require('../models/cartproduct');
 const faker = require('faker');
 const ASYNC = require('async');
 const SignUp = (req,res) =>{
@@ -178,6 +180,32 @@ const CreateProductbyCategoryName = async(req,res, next)=>{
         }
         return res.json('Not Category found')
             }
+
+            const createUserCart = async(req,res)=>{
+                const cart = new Cart();
+                const cartproduct = new CartProduct()
+                const user_id =  await req.params.user_id;
+                const product_id =  await req.body.product_id;
+                const quantity =await req.body.quantity;
+ 
+                const usercart = await CartProduct.findOne({ user_id});
+                const productcart = await CartProduct.findOne( {product_id:req.body.product_id} );
+               // res.json({usercart,productcart})
+                
+                if(productcart===null&&usercart.length!==null){
+                    cartproduct.user_id=user_id
+                    cartproduct.product_id=req.body.product_id
+                    cartproduct.quantity=req.body.quantity
+                    cartproduct.save()
+                    res.json({saved :cartproduct})
+                }else{
+                    productcart.quantity=req.body.quantity
+                    productcart.save()
+                    res.json({Updated :productcart})
+                }
+              
+                   
+            }
             
 const Hello = async(req,res) =>{
    
@@ -193,5 +221,6 @@ const Hello = async(req,res) =>{
         CreateProductbyCategoryName,
         GetAllProducts,
         GetAllProductsbyCategory ,
-        GetProduct
+        GetProduct,
+        createUserCart
     }
