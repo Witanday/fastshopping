@@ -93,7 +93,7 @@ export const register = formValues => async (dispatch, getState) =>{
    // console.log(typeof category)
    // console.log(getState())
     const response =  await URL.get(`/product/${category}`);
-   console.log(response )
+   //console.log(response )
    dispatch({ type :'FETCH_PRODUCT', payload : response.data})
    //Do some programmatic navigation to
    // get the user back to the root route
@@ -107,7 +107,7 @@ export const register = formValues => async (dispatch, getState) =>{
     // console.log(typeof category)
     // console.log(getState())
      const response =  await URL.get(`/product/view/${_id}`);
-    console.log(response )
+    //console.log(response )
     dispatch({ type :'FETCH_PRODUCT_ID', payload : response.data})
     //Do some programmatic navigation to
     // get the user back to the root route
@@ -116,3 +116,35 @@ export const register = formValues => async (dispatch, getState) =>{
     }*/
     
    }
+
+   export const addtoCart = () =>{
+      return{
+        type:'INCREMENT'
+      }
+   }
+
+   export const addToCart = (user_id,data) => async (dispatch, getState) =>{
+    // console.log(typeof category)
+     const response =  await URL.post(`/cart/${user_id}`, data);
+    dispatch({ type :'ADD_TO_CART', payload : response.data})
+    //Do some programmatic navigation to
+    // get the user back to the root route
+    /*if(category===undefined || category){
+     history.push(`/product/${category}`);
+    }*/
+    
+   }
+   export const getCart = () => async (dispatch, getState) =>{
+    // console.log(typeof category)
+   
+     const response =  await URL.get(`/cart`);
+    console.log(response )
+    dispatch({ type :'GET_CART', payload : response.data})
+    //Do some programmatic navigation to
+    // get the user back to the root route
+    /*if(category===undefined || category){
+     history.push(`/product/${category}`);
+    }*/
+    
+   }
+ 

@@ -96,7 +96,7 @@ input.ui.segment {
 .ui.container.viewp{
   display: flex;
   justify-content: space-between;
-  margin-top: 150px;
+  margin-top: 50px;
   margin-bottom: 20px;
   align-content: flex-start
 }

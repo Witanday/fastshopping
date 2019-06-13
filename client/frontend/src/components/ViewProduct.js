@@ -1,10 +1,32 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux';
-import {fetchproductId} from '../actions'
-import Header from './HeaderCategory'
+import Header from './HeaderCategory';
+import QuantityForm from './qtyForm'
+import {fetchproductId, addToCart} from '../actions'
+import jwt_decode from 'jwt-decode';
 
  class ViewProduct extends Component {
 
+    onSubmit =(formValues)=>{
+        const value= {formValues}
+        const product_id =this.props.match.params._id
+        const Formvalue= value.formValues
+        const token= window.localStorage.getItem('access_token')
+        var decoded = jwt_decode(token);
+       const user_id=decoded.user_id;
+       const data= {};
+        data.product_id=product_id;
+        if(this.props.viwprod){
+            data.product_name =this.props.viwprod.name;
+            data.product_price =this.props.viwprod.price;
+            data.quantity=Formvalue.quantity;
+            console.log(data, user_id)
+            this.props.addToCart(user_id,data)
+        }
+
+
+    }
+  
     componentDidMount(){
             console.log(this.props)
         //this.props.fetchproduct
@@ -30,11 +52,9 @@ import Header from './HeaderCategory'
                 <h2 class="ui Sub Header"><i className="dollar icon"></i>{product.price}</h2>
 
                 <div>
-                <button class="ui icon button"><i class="plus icon"></i></button>
-                    <input type="number"/>
-                <button class="ui icon button"><i class="minus icon"></i></button>
+               <QuantityForm onSubmit={this.onSubmit}/>
                 </div>
-                <button class="ui basic button"> <i class="icon cart"></i> Add to Cart</button>
+              
                 <div>
                 <div class="ui">
 <h4 class="ui header">Description:</h4>
@@ -53,7 +73,7 @@ import Header from './HeaderCategory'
         }
     }
     render() {
-        
+        console.log(this.props)
         return (
            
             this.renderSigleProduct()
@@ -61,8 +81,8 @@ import Header from './HeaderCategory'
     }
 }
 const mapSateToProps = state=> {
-    console.log(state.fast.singleproduct)
+    console.log(state.fast)
     return {viwprod : state.fast.singleproduct}
 }
 
-export default connect( mapSateToProps , {fetchproductId})(ViewProduct)
+export default connect( mapSateToProps , {addToCart,fetchproductId})(ViewProduct)

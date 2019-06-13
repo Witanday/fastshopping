@@ -27,7 +27,7 @@ class Products extends Component {
           console.log(this.props.productbycategory.Products)
           if(this.props.productbycategory.Products.length!==0){
            return this.props.productbycategory.Products.map(product=>{
-           return <Link to={`/product/view/${product._id}`} class="carddiv">
+           return <Link to={`/view/${product._id}`} class="carddiv">
     <div class="imagediv">
       <img src={product.image} />
     </div>

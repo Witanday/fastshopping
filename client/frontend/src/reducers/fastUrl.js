@@ -8,7 +8,8 @@ import _ from 'lodash'
 const INITIAL_STATE = {
     isSignedIn: null,
    user_id:null,
-   category :null
+   category :null,
+   Qty :1
 
 }
 
@@ -45,6 +46,12 @@ export default ( state= INITIAL_STATE, action) =>{
 
             case 'FETCH_PRODUCTS' :
             return {...state, ...{AllProducts :action.payload}}
+
+            case 'ADD_TO_CART' :
+            return {...state, ...{CART :action.payload}}
+
+            case 'GET_CART' :
+            return {...state, ...{CARTLIST :action.payload}}
     default : 
     return state
 }
