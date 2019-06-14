@@ -16,7 +16,14 @@ import {Field, reduxForm} from 'redux-form';
     componentDidMount(){
       
         var qty = this.renderqtyCount([])
+{/*<div class="product-quantity-box left"> 
 
+<span class="ss-icon product-minus js-change-quantity" data-func="minus">
+    <span class="icon-minus"></span>
+    <input type="number" min="0" size="2" class="quantity" name="updates[]" id="updates_16025772294190" value="3" data-line-id="1">
+         <span class="ss-icon product-plus js-change-quantity" data-func="plus" />
+        <span class="icon-plus">
+        </span></div>/**/ */}
      
     }
 
@@ -44,4 +51,3 @@ import {Field, reduxForm} from 'redux-form';
 
 
 export default reduxForm({form :'quantity'})(QtyForm)
-

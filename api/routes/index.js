@@ -21,6 +21,7 @@ RouteFastShooping.get('/product/view/:_id',TaskManager.GetProduct);
 RouteFastShooping.get('/products',TaskManager.GetAllProducts);
 RouteFastShooping.get('/product/:category',TaskManager.GetAllProductsbyCategory);
 RouteFastShooping.post('/cart/:user_id',TaskManager.createUserCart);
+RouteFastShooping.get('/cart',TaskManager.getCart);
 /*
 // ## SIGN UP
 RouteFastShooping.post('/signin',TaskManager.SignIn);

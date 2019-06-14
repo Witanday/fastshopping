@@ -130,7 +130,7 @@ const CreateProductbyCategoryName = async(req,res, next)=>{
                 product.category= category._id;
                 product.name = faker.commerce.productName();
                 product.price =faker.commerce.price();
-                product.image = faker.image.image();
+                product.image = faker.image.imageUrl();
                 product.description= faker.lorem.paragraph()
                 product.save()
             }
@@ -193,9 +193,11 @@ const CreateProductbyCategoryName = async(req,res, next)=>{
                // res.json({usercart,productcart})
                 
                 if(productcart===null&&usercart.length!==null){
-                    cartproduct.user_id=user_id
-                    cartproduct.product_id=req.body.product_id
-                    cartproduct.quantity=req.body.quantity
+                    cartproduct.user_id=user_id;
+                    cartproduct.product_id=req.body.product_id;
+                    cartproduct.product_price=req.body.product_price;
+                    cartproduct.product_name=req.body.product_name;
+                    cartproduct.quantity=req.body.quantity||1;
                     cartproduct.save()
                     res.json({saved :cartproduct})
                 }else{
@@ -203,6 +205,13 @@ const CreateProductbyCategoryName = async(req,res, next)=>{
                     productcart.save()
                     res.json({Updated :productcart})
                 }
+              
+                   
+            }
+
+            const getCart = async(req,res)=>{
+                const findcart = await CartProduct.find();
+                res.json(findcart) 
               
                    
             }
@@ -222,5 +231,6 @@ const Hello = async(req,res) =>{
         GetAllProducts,
         GetAllProductsbyCategory ,
         GetProduct,
-        createUserCart
+        createUserCart,
+        getCart
     }

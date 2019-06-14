@@ -7,7 +7,10 @@ const CartProductSchema = new Schema ({
             type:ObjectId, 
             ref:'User'},
         product_id :String,
+        product_name:String,
         quantity:Number,
+        product_price :Number,
+
 
 })
 
